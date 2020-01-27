@@ -133,9 +133,13 @@ public class IndexedRowTable implements Table {
    */
   @Override
   public long columnSum() {
+    return columnSum(0);
+  }
+
+  public long columnSum(int colId) {
     long colsum = 0;
     for (int rowId = 0; rowId < numRows; ++rowId) {
-      colsum += getIntField(rowId, 0);
+      colsum += getIntField(rowId, colId);
     }
     return colsum;
   }
@@ -215,8 +219,20 @@ public class IndexedRowTable implements Table {
    */
   @Override
   public long predicatedAllColumnsSum(int threshold) {
-    // TODO: Implement this!
-    return 0;
+    Set<Integer> rowsSatisfying = getSatisfyingRowsGreaterThan(threshold, 0);
+    long ans = 0;
+    for(int rowId: rowsSatisfying){
+      ans += rowSum(rowId);
+    }
+    return ans;
+  }
+
+  private long rowSum(Integer rowId) {
+    long ans = 0;
+    for(int colId=0; colId<numCols; ++colId){
+      ans += getIntField(rowId, colId);
+    }
+    return ans;
   }
 
   /**
