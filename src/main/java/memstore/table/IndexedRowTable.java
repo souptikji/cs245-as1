@@ -107,15 +107,15 @@ public class IndexedRowTable implements Table {
       return;
     }
     int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+    int oldFieldValue = getIntField(rowId, indexColumn);
     rows.putInt(offset, newFieldValue);
     if (colId == indexColumn) {
       //update the index too
-      updateIndex(rowId, newFieldValue);
+      updateIndex(rowId, newFieldValue, oldFieldValue);
     }
   }
 
-  private void updateIndex(int rowId, int newFieldValue) {
-    int oldFieldValue = getIntField(rowId, indexColumn);
+  private void updateIndex(int rowId, int newFieldValue, int oldFieldValue) {
     if (oldFieldValue == newFieldValue) {
       return;
     }
@@ -152,15 +152,36 @@ public class IndexedRowTable implements Table {
    *  subject to the passed-in predicates.
    */
   @Override
-  public long predicatedColumnSum(int threshold1, int threshold2) {
+  /*public long predicatedColumnSum(int threshold1, int threshold2) {
     Set<Integer> satisfyingPred1 = getSatisfyingRowsGreaterThan(threshold1, 1);
     Set<Integer> satisfyingPred2 = getSatisfyingRowsLessThan(threshold2, 2);
-    satisfyingPred1.retainAll(satisfyingPred2);
-    long ans = 0;
-    for(int rowId: satisfyingPred1){
-      ans += getIntField(rowId, 0);
+    Set<Integer> ans;
+
+    // Do smaller.retainAll(larger)
+    if(satisfyingPred1.size()<satisfyingPred2.size()){
+      ans = satisfyingPred1;
+      ans.retainAll(satisfyingPred2);
+    } else {
+      ans = satisfyingPred2;
+      ans.retainAll(satisfyingPred1);
     }
-    return ans;
+
+    long vans = 0;
+    for(int rowId: ans){
+      vans += getIntField(rowId, 0);
+    }
+    return vans;
+  }*/
+
+  public long predicatedColumnSum(int threshold1, int threshold2) {
+    Set<Integer> satisfyingPred1 = getSatisfyingRowsGreaterThan(threshold1, 1);
+    Set<Integer> satisfyingPred2 = getSatisfyingRowsLessThan(threshold2, 2, satisfyingPred1);
+
+    long vans = 0;
+    for(int rowId: satisfyingPred2){
+      vans += getIntField(rowId, 0);
+    }
+    return vans;
   }
 
   private Set<Integer> getSatisfyingRowsGreaterThan(int threshold, int colId) {
@@ -179,6 +200,16 @@ public class IndexedRowTable implements Table {
     }
   }
 
+  private Set<Integer> getSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
+    if(colId==indexColumn){
+      return indexGetSatisfyingRowsLessThan(threshold, colId, rowSubset);
+    } else {
+      return bufferGetSatisfyingRowsLessThan(threshold, colId, rowSubset);
+    }
+  }
+
+
+
   private Set<Integer> indexGetSatisfyingRowsGreaterThan(int threshold, int colId) {
     Set<Integer> resultSet = new HashSet<>();
     index.tailMap(threshold+1).forEach((k, intArrayList)->resultSet.addAll(intArrayList));
@@ -189,6 +220,23 @@ public class IndexedRowTable implements Table {
     Set<Integer> resultSet = new HashSet<>();
     index.headMap(threshold).forEach((k, intArrayList)->resultSet.addAll(intArrayList));
     return resultSet;
+  }
+
+  private Set<Integer> indexGetSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
+    Set<Integer> set1 = new HashSet<>();
+    index.headMap(threshold).forEach((k, intArrayList)->set1.addAll(intArrayList));
+
+    Set<Integer> ans;
+    // Do smaller.retainAll(larger)
+    if(set1.size()<rowSubset.size()){
+      ans = set1;
+      ans.retainAll(rowSubset);
+    } else {
+      ans = rowSubset;
+      ans.retainAll(set1);
+    }
+
+    return ans;
   }
 
   private Set<Integer> bufferGetSatisfyingRowsGreaterThan(int threshold, int colId) {
@@ -204,6 +252,16 @@ public class IndexedRowTable implements Table {
   private Set<Integer> bufferGetSatisfyingRowsLessThan(int threshold, int colId) {
     Set<Integer> resultSet = new HashSet<>();
     for (int rowId = 0; rowId < numRows; ++rowId){
+      if(getIntField(rowId,colId)<threshold){
+        resultSet.add(rowId);
+      }
+    }
+    return resultSet;
+  }
+
+  private Set<Integer> bufferGetSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
+    Set<Integer> resultSet = new HashSet<>();
+    for (int rowId : rowSubset){
       if(getIntField(rowId,colId)<threshold){
         resultSet.add(rowId);
       }
@@ -243,7 +301,10 @@ public class IndexedRowTable implements Table {
    */
   @Override
   public int predicatedUpdate(int threshold) {
-    // TODO: Implement this!
-    return 0;
+    Set<Integer> rowsSatisfying = getSatisfyingRowsLessThan(threshold, 0);
+    for(int rowId: rowsSatisfying){
+      putIntField(rowId, 3, getIntField(rowId,3)+getIntField(rowId,2));
+    }
+    return rowsSatisfying.size();
   }
 }

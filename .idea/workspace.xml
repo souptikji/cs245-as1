@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d55fafa-d698-41e5-a179-b4a4e3997d65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,20 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="99" column="5" lean-forward="true" selection-start-line="95" selection-start-column="4" selection-end-line="99" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="234" column="15" selection-start-line="234" selection-start-column="15" selection-end-line="234" selection-end-column="15" />
+            <state relative-caret-position="408">
+              <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
               <folding>
                 <element signature="e#3861#3862#0" expanded="true" />
                 <element signature="e#3884#3885#0" expanded="true" />
@@ -40,11 +33,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1434">
+              <caret line="137" column="73" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Set.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="674">
+              <caret line="319" column="12" selection-start-line="319" selection-start-column="12" selection-end-line="319" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedUpdateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedAllColumnsSumTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="225">
+              <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -59,40 +88,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/TableLoadTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PutGetTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/it/unimi/dsi/fastutil/8.1.0/fastutil-8.1.0.jar!/it/unimi/dsi/fastutil/ints/IntArrayList.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-702">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-              <folding>
-                <element signature="e#1062#1063#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="510">
               <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
             </state>
           </provider>
@@ -110,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1147">
-              <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+            <state relative-caret-position="764">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,16 +132,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/ColumnSumTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java" />
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java" />
+        <option value="$PROJECT_DIR$/src/test/java/memstore/table/PredicatedUpdateTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="793" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -169,6 +170,30 @@
               <item name="cs245-as1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="memstore-bench" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs245-as1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="memstore-bench" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs245-as1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="memstore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="memstore-bench" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs245-as1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="memstore" type="462c0819:PsiDirectoryNode" />
+              <item name="table" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="memstore-bench" type="b2602c69:ProjectViewProjectNode" />
@@ -267,7 +292,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PredicatedAllColumnsSumTest">
+  <component name="RunManager" selected="JUnit.PredicatedUpdateTest">
     <configuration name="ColumnSumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="memstore-bench" />
       <extension name="coverage">
@@ -313,6 +338,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PredicatedUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="memstore-bench" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="memstore.table.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="memstore.table" />
+      <option name="MAIN_CLASS_NAME" value="memstore.table.PredicatedUpdateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PutGetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="memstore-bench" />
       <extension name="coverage">
@@ -328,28 +368,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TableLoadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="memstore-bench" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="memstore.table.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="memstore.table" />
-      <option name="MAIN_CLASS_NAME" value="memstore.table.TableLoadTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PredicatedUpdateTest" />
         <item itemvalue="JUnit.PredicatedAllColumnsSumTest" />
         <item itemvalue="JUnit.PredicatedColumnSumTest" />
         <item itemvalue="JUnit.ColumnSumTest" />
         <item itemvalue="JUnit.PutGetTest" />
-        <item itemvalue="JUnit.TableLoadTest" />
       </list>
     </recent_temporary>
   </component>
@@ -363,7 +388,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579916975397</updated>
-      <workItem from="1579916984294" duration="14308000" />
+      <workItem from="1579916984294" duration="20028000" />
     </task>
     <servers>
       <JIRA url="https://jira01.corp.linkedin.com:8443">
@@ -372,12 +397,6 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="PredicatedColumnSumTest - 2020.01.26 at 22h 34m 50s.xml">
-      <configuration name="PredicatedColumnSumTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TableLoadTest - 2020.01.26 at 22h 35m 03s.xml">
-      <configuration name="TableLoadTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PutGetTest - 2020.01.26 at 22h 35m 23s.xml">
       <configuration name="PutGetTest" configurationId="JUnit" />
     </history-entry>
@@ -402,19 +421,26 @@
     <history-entry file="PredicatedAllColumnsSumTest - 2020.01.26 at 23h 01m 12s.xml">
       <configuration name="PredicatedAllColumnsSumTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PredicatedUpdateTest - 2020.01.27 at 22h 29m 09s.xml">
+      <configuration name="PredicatedUpdateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PredicatedUpdateTest - 2020.01.27 at 22h 37m 57s.xml">
+      <configuration name="PredicatedUpdateTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14308000" />
+    <option name="totallyTimeSpent" value="20028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
       <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" weight="0.32961586" />
       <window_info anchor="bottom" id="CheckStyle" />
@@ -427,7 +453,7 @@
       <window_info anchor="bottom" id="CodeSearch" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32961586" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32961586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39900866" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -463,7 +489,7 @@
       <window_info anchor="bottom" id="Message" order="9" />
       <window_info anchor="bottom" id="Find" order="10" />
       <window_info active="true" anchor="bottom" id="Run" order="11" visible="true" weight="0.32961586" />
-      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.39900866" />
       <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="15" />
@@ -508,12 +534,6 @@
           <line>105</line>
           <properties />
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
@@ -577,27 +597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedUpdateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/memstore/data/DataLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -616,13 +619,6 @@
             <element signature="e#1062#1063#0" expanded="true" />
             <element signature="e#1080#1081#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="99" column="5" lean-forward="true" selection-start-line="95" selection-start-column="4" selection-end-line="99" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -654,28 +650,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+        <state relative-caret-position="210">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Set.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="234" column="15" selection-start-line="234" selection-start-column="15" selection-end-line="234" selection-end-column="15" />
-          <folding>
-            <element signature="e#3861#3862#0" expanded="true" />
-            <element signature="e#3884#3885#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="674">
+          <caret line="319" column="12" selection-start-line="319" selection-start-column="12" selection-end-line="319" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedAllColumnsSumTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="225">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedUpdateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1434">
+          <caret line="137" column="73" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
+          <folding>
+            <element signature="e#3861#3862#0" expanded="true" />
+            <element signature="e#3884#3885#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

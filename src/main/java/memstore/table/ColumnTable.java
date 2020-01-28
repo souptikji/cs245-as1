@@ -1,5 +1,7 @@
 package memstore.table;
 
+import java.util.ArrayList;
+import java.util.Set;
 import memstore.data.ByteFormat;
 import memstore.data.DataLoader;
 
@@ -121,7 +123,34 @@ public class ColumnTable implements Table {
      */
     @Override
     public int predicatedUpdate(int threshold) {
-        // TODO: Implement this!
-        return 0;
+        List<Integer> matchingRows = new ArrayList<>();
+        for (int rowId = 0; rowId < numRows; ++rowId){
+            if(getIntField(rowId,0)<threshold){
+                matchingRows.add(rowId);
+            }
+        }
+
+        List<Integer> col2values = new ArrayList<>();
+        for(int rowId: matchingRows){
+            col2values.add(getIntField(rowId,2));
+        }
+
+        List<Integer> col3values = new ArrayList<>();
+        for(int rowId: matchingRows){
+            col3values.add(getIntField(rowId,3));
+        }
+
+        List<Integer> finalCol3Val = new ArrayList<>();
+        for(int i=0; i<col2values.size(); ++i){
+            finalCol3Val.add(col2values.get(i)+col3values.get(i));
+        }
+
+        for(int i=0; i<matchingRows.size(); ++i){
+            int rowId = matchingRows.get(i);
+            int fieldVal = finalCol3Val.get(i);
+            putIntField(rowId, 3, fieldVal);
+        }
+
+        return matchingRows.size();
     }
 }
