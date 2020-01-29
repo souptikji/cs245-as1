@@ -18,6 +18,7 @@ public class RowTable implements Table {
   protected int numCols;
   protected int numRows;
   protected ByteBuffer rows;
+  long col0sum;
 
   public RowTable() {
   }
@@ -39,6 +40,8 @@ public class RowTable implements Table {
       ByteBuffer curRow = rows.get(rowId);
       for (int colId = 0; colId < numCols; colId++) {
         int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+        int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
+        if(colId==0) col0sum+=fieldVal;
         this.rows.putInt(offset, curRow.getInt(ByteFormat.FIELD_LEN * colId));
       }
     }
@@ -76,11 +79,12 @@ public class RowTable implements Table {
    */
   @Override
   public long columnSum() {
-    long colsum = 0;
+    return col0sum;
+    /*long colsum = 0;
     for (int rowId = 0; rowId < numRows; ++rowId) {
       colsum += getIntField(rowId, 0);
     }
-    return colsum;
+    return colsum;*/
   }
 
   /**

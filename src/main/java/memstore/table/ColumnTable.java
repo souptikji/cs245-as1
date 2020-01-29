@@ -18,6 +18,7 @@ public class ColumnTable implements Table {
     int numCols;
     int numRows;
     ByteBuffer columns;
+    long col0sum=0;
 
     public ColumnTable() { }
 
@@ -37,6 +38,8 @@ public class ColumnTable implements Table {
             ByteBuffer curRow = rows.get(rowId);
             for (int colId = 0; colId < numCols; colId++) {
                 int offset = ByteFormat.FIELD_LEN * ((colId * numRows) + rowId);
+                int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
+                if(colId==0) col0sum+=fieldVal;
                 this.columns.putInt(offset, curRow.getInt(ByteFormat.FIELD_LEN*colId));
             }
         }
@@ -68,11 +71,12 @@ public class ColumnTable implements Table {
      */
     @Override
     public long columnSum() {
-        long colsum = 0;
+        return col0sum;
+        /*long colsum = 0;
         for (int rowId = 0; rowId < numRows; ++rowId) {
             colsum += getIntField(rowId, 0);
         }
-        return colsum;
+        return colsum;*/
         /*long colsum = 0;
         byte[] dst = new byte[ByteFormat.FIELD_LEN*numRows];
         columns.get(dst);
