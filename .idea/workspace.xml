@@ -18,12 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="177" column="60" selection-start-line="177" selection-start-column="35" selection-end-line="177" selection-end-column="60" />
-              <folding>
-                <element signature="e#3895#3896#0" expanded="true" />
-                <element signature="e#3924#3925#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="189">
+              <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -31,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/memstore/benchmarks/ColumnSumNarrowBench.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="19" />
+            <state relative-caret-position="225">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding>
                 <element signature="e#1331#1332#0" expanded="true" />
                 <element signature="e#1368#1369#0" expanded="true" />
@@ -145,10 +141,10 @@
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/CustomTableTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/PredicatedUpdateTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/memstore/benchmarks/ColumnSumNarrowBench.java" />
         <option value="$PROJECT_DIR$/src/test/java/memstore/table/ColumnSumTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/memstore/table/ColumnTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" />
       </list>
     </option>
   </component>
@@ -403,7 +399,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579916975397</updated>
       <workItem from="1579916984294" duration="20338000" />
-      <workItem from="1580239831516" duration="6614000" />
+      <workItem from="1580239831516" duration="7032000" />
     </task>
     <servers>
       <JIRA url="https://jira01.corp.linkedin.com:8443">
@@ -444,7 +440,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26952000" />
+    <option name="totallyTimeSpent" value="27370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="934" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -528,13 +524,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
-          <line>75</line>
+          <line>77</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
-          <line>155</line>
+          <line>158</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -546,7 +542,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
-          <line>60</line>
+          <line>62</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -779,17 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/benchmarks/ColumnSumNarrowBench.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/memstore/table/ColumnSumTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -807,14 +792,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/benchmarks/ColumnSumNarrowBench.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="177" column="60" selection-start-line="177" selection-start-column="35" selection-end-line="177" selection-end-column="60" />
-          <folding>
-            <element signature="e#3895#3896#0" expanded="true" />
-            <element signature="e#3924#3925#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
         </state>
       </provider>
     </entry>

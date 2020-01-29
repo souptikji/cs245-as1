@@ -26,6 +26,7 @@ public class IndexedRowTable implements Table {
 
   int numCols;
   int numRows;
+  long col0sum=0;
   private TreeMap<Integer, IntArrayList> index; //fieldVal -> [row1, row7, row9...]
   private ByteBuffer rows;
   private int indexColumn;
@@ -53,6 +54,7 @@ public class IndexedRowTable implements Table {
       for (int colId = 0; colId < numCols; colId++) {
         int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
         int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
+        if(colId==0) col0sum+=fieldVal;
         if (colId == indexColumn) {
           insertIntoIndex(rowId, fieldVal);
         }
@@ -133,7 +135,8 @@ public class IndexedRowTable implements Table {
    */
   @Override
   public long columnSum() {
-    return columnSum(0);
+    //return columnSum(0);
+    return col0sum;
   }
 
   public long columnSum(int colId) {
