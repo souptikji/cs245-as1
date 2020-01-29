@@ -73,6 +73,14 @@ public class ColumnTable implements Table {
             colsum += getIntField(rowId, 0);
         }
         return colsum;
+        /*long colsum = 0;
+        byte[] dst = new byte[ByteFormat.FIELD_LEN*numRows];
+        columns.get(dst);
+        ByteBuffer col0buffer = ByteBuffer.wrap(dst);
+        for(int rowId=0; rowId<numRows*ByteFormat.FIELD_LEN; rowId+=ByteFormat.FIELD_LEN){
+            colsum += col0buffer.getInt(rowId);
+        }
+        return colsum;*/
     }
 
     /**

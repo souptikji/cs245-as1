@@ -1,7 +1,9 @@
 package memstore.table;
 
+import memstore.GraderConstants;
 import memstore.data.CSVLoader;
 import memstore.data.DataLoader;
+import memstore.data.RandomizedLoader;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -41,5 +43,18 @@ public class ColumnSumTest {
         IndexedRowTable it = new IndexedRowTable(0);
         it.load(dl);
         assertEquals(68, it.columnSum());
+    }
+
+    @Test
+    public void testColumnTableNarrowBench() throws IOException{
+        ColumnTable ct;
+        dl = new RandomizedLoader(
+            GraderConstants.getSeed(),
+            1_000_000,
+            3
+        );
+        ct = new ColumnTable();
+        ct.load(dl);
+        ct.columnSum();
     }
 }
