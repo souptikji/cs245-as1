@@ -1,24 +1,25 @@
 package memstore.table;
 
-import it.unimi.dsi.fastutil.ints.IntArrayList;
-import java.nio.ByteBuffer;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.stream.IntStream;
 import memstore.data.ByteFormat;
 import memstore.data.DataLoader;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.List;
+
 
 /**
- * Custom table implementation to adapt to provided query mix.
+ * RowTable, which stores data in row-major format.
+ * That is, data is laid out like
+ *   row 1 | row 2 | ... | row n.
  */
 public class CustomTable implements Table {
     protected int numCols;
     protected int numRows;
     protected ByteBuffer rows;
     long col0sum;
+    long[] rowSums;
 
     public CustomTable() {
     }
@@ -35,15 +36,19 @@ public class CustomTable implements Table {
         List<ByteBuffer> rows = loader.getRows();
         numRows = rows.size();
         this.rows = ByteBuffer.allocate(ByteFormat.FIELD_LEN * numRows * numCols);
+        rowSums = new long[numRows];
 
         for (int rowId = 0; rowId < numRows; rowId++) {
             ByteBuffer curRow = rows.get(rowId);
+            long rowsum =0;
             for (int colId = 0; colId < numCols; colId++) {
                 int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
                 int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
                 if(colId==0) col0sum+=fieldVal;
+                rowsum+=fieldVal;
                 this.rows.putInt(offset, curRow.getInt(ByteFormat.FIELD_LEN * colId));
             }
+            rowSums[rowId] = rowsum;
         }
     }
 
@@ -74,6 +79,9 @@ public class CustomTable implements Table {
             col0sum -= oldFieldValue;
             col0sum += field;
         }
+        // update rowsum
+        rowSums[rowId] -= oldFieldValue;
+        rowSums[rowId] += field;
         rows.putInt(offset, field);
     }
 
@@ -123,11 +131,12 @@ public class CustomTable implements Table {
         for (int rowId = 0; rowId < numRows; ++rowId){
             if(getIntField(rowId,0)>threshold){
                 //get col sum for the entire row
-                int rowsum = 0;
+                /*int rowsum = 0;
                 for(int colId=0; colId<numCols; ++colId){
                     rowsum += getIntField(rowId, colId);
                 }
-                ans+=rowsum;
+                ans+=rowsum;*/
+                ans += rowSums[rowId];
             }
         }
         return ans;
