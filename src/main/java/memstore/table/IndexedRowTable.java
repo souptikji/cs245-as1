@@ -30,6 +30,7 @@ public class IndexedRowTable implements Table {
   private TreeMap<Integer, IntArrayList> index; //fieldVal -> [row1, row7, row9...]
   private ByteBuffer rows;
   private int indexColumn;
+  long[] rowsums;
 
   public IndexedRowTable(int indexColumn) {
     this.indexColumn = indexColumn;
@@ -48,18 +49,22 @@ public class IndexedRowTable implements Table {
     List<ByteBuffer> rows = loader.getRows();
     numRows = rows.size();
     this.rows = ByteBuffer.allocate(ByteFormat.FIELD_LEN * numRows * numCols);
+    rowsums = new long[numRows];
 
     for (int rowId = 0; rowId < numRows; rowId++) {
       ByteBuffer curRow = rows.get(rowId);
+      long rowsum =0;
       for (int colId = 0; colId < numCols; colId++) {
         int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
         int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
         if(colId==0) col0sum+=fieldVal;
+        rowsum+=fieldVal;
         if (colId == indexColumn) {
           insertIntoIndex(rowId, fieldVal);
         }
         this.rows.putInt(offset, fieldVal);
       }
+      rowsums[rowId] = rowsum;
     }
   }
 
@@ -288,12 +293,14 @@ public class IndexedRowTable implements Table {
     return ans;
   }
 
-  private long rowSum(Integer rowId) {
-    long ans = 0;
+  //TODO: This might lead to correctness issues if called after updates
+  private long rowSum(int rowId) {
+    /*long ans = 0;
     for(int colId=0; colId<numCols; ++colId){
       ans += getIntField(rowId, colId);
     }
-    return ans;
+    return ans;*/
+    return rowsums[rowId];
   }
 
   /**
