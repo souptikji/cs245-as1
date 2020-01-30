@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d55fafa-d698-41e5-a179-b4a4e3997d65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/benchmarks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/benchmarks.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/BenchmarkList" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/BenchmarkList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/memstore/table/IndexedRowTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/memstore/table/IndexedRowTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/memstore-bench-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/memstore-bench-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.grader.GradedTestResultTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.grader.GradedTestResultTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.CSVLoaderTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.CSVLoaderTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.ColumnSumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.ColumnSumTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedAllColumnsSumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedAllColumnsSumTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedColumnSumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedColumnSumTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedUpdateTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PredicatedUpdateTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PutGetTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.PutGetTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.RandomizedLoaderTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.RandomizedLoaderTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.TableLoadTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-memstore.table.TableLoadTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.grader.GradedTestResultTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.grader.GradedTestResultTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.CSVLoaderTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.CSVLoaderTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.ColumnSumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.ColumnSumTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedAllColumnsSumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedAllColumnsSumTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedColumnSumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedColumnSumTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedUpdateTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.PredicatedUpdateTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.RandomizedLoaderTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.RandomizedLoaderTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/memstore.table.TableLoadTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/memstore.table.TableLoadTest.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="295" column="71" selection-start-line="295" selection-start-column="71" selection-end-line="295" selection-end-column="71" />
+            <state relative-caret-position="370">
+              <caret line="327" column="73" selection-start-line="327" selection-start-column="73" selection-end-line="327" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -425,7 +402,7 @@
       <updated>1579916975397</updated>
       <workItem from="1579916984294" duration="20338000" />
       <workItem from="1580239831516" duration="8473000" />
-      <workItem from="1580265393193" duration="1235000" />
+      <workItem from="1580265393193" duration="2777000" />
     </task>
     <servers>
       <JIRA url="https://jira01.corp.linkedin.com:8443">
@@ -466,13 +443,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30046000" />
+    <option name="totallyTimeSpent" value="31588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250357" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25250357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -507,7 +484,7 @@
       <window_info anchor="right" id="SciView" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24920128" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -517,7 +494,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32928064" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39817628" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39817628" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -553,12 +530,6 @@
           <line>82</line>
           <properties />
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java</url>
-          <line>163</line>
-          <properties />
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/memstore/table/PredicatedColumnSumTest.java</url>
@@ -749,20 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="295" column="71" selection-start-line="295" selection-start-column="71" selection-end-line="295" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/memstore/benchmarks/ColumnSumNarrowBench.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -833,6 +790,20 @@
             <element signature="e#12171#12172#0" expanded="true" />
             <element signature="e#12210#12211#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/RowTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/memstore/table/IndexedRowTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="327" column="73" selection-start-line="327" selection-start-column="73" selection-end-line="327" selection-end-column="73" />
         </state>
       </provider>
     </entry>

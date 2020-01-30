@@ -160,7 +160,33 @@ public class IndexedRowTable implements Table {
    *  subject to the passed-in predicates.
    */
   @Override
-  /*public long predicatedColumnSum(int threshold1, int threshold2) {
+  public long predicatedColumnSum(int threshold1, int threshold2) {
+
+    Set<Integer> fasterToCompute;
+    Set<Integer> finalset;
+    if(indexColumn==1){
+      // Compute set1 from index and then pass it to set2 for filtering it against the buffer
+      fasterToCompute = indexGetSatisfyingRowsGreaterThan(threshold1, 1);
+      finalset = bufferGetSatisfyingRowsLessThan(threshold2, 2, fasterToCompute);
+    } else if(indexColumn==2){
+      // Compute set2 from index and then pass it to set1 for filtering it against the buffer
+      fasterToCompute = indexGetSatisfyingRowsLessThan(threshold2, 2);
+      finalset = bufferGetSatisfyingRowsGreaterThan(threshold1, 1, fasterToCompute);
+    } else {
+      // both pred1 and pred2 are on non-indexed columns
+      fasterToCompute = bufferGetSatisfyingRowsGreaterThan(threshold1, 1);
+      finalset = bufferGetSatisfyingRowsLessThan(threshold2, 2, fasterToCompute);
+    }
+
+
+    long vans = 0;
+    for(int rowId: finalset){
+      vans += getIntField(rowId, 0);
+    }
+    return vans;
+  }
+
+   /*public long predicatedColumnSum(int threshold1, int threshold2) {
     Set<Integer> satisfyingPred1 = getSatisfyingRowsGreaterThan(threshold1, 1);
     Set<Integer> satisfyingPred2 = getSatisfyingRowsLessThan(threshold2, 2);
     Set<Integer> ans;
@@ -180,17 +206,6 @@ public class IndexedRowTable implements Table {
     }
     return vans;
   }*/
-
-  public long predicatedColumnSum(int threshold1, int threshold2) {
-    Set<Integer> satisfyingPred1 = getSatisfyingRowsGreaterThan(threshold1, 1);
-    Set<Integer> satisfyingPred2 = getSatisfyingRowsLessThan(threshold2, 2, satisfyingPred1);
-
-    long vans = 0;
-    for(int rowId: satisfyingPred2){
-      vans += getIntField(rowId, 0);
-    }
-    return vans;
-  }
 
   private Set<Integer> getSatisfyingRowsGreaterThan(int threshold, int colId) {
     if(colId==indexColumn){
@@ -257,6 +272,16 @@ public class IndexedRowTable implements Table {
     return resultSet;
   }
 
+  private Set<Integer> bufferGetSatisfyingRowsGreaterThan(int threshold, int colId, Set<Integer> rowSubset) {
+    Set<Integer> resultSet = new HashSet<>();
+    for (int rowId : rowSubset){
+      if(getIntField(rowId,colId)>threshold){
+        resultSet.add(rowId);
+      }
+    }
+    return resultSet;
+  }
+
   private Set<Integer> bufferGetSatisfyingRowsLessThan(int threshold, int colId) {
     Set<Integer> resultSet = new HashSet<>();
     for (int rowId = 0; rowId < numRows; ++rowId){
@@ -293,14 +318,15 @@ public class IndexedRowTable implements Table {
     return ans;
   }
 
-  //TODO: This might lead to correctness issues if called after updates
+
   private long rowSum(int rowId) {
-    /*long ans = 0;
+    long ans = 0;
     for(int colId=0; colId<numCols; ++colId){
       ans += getIntField(rowId, colId);
     }
-    return ans;*/
-    return rowsums[rowId];
+    return ans;
+    //TODO: This might lead to correctness issues if called after updates
+    //return rowsums[rowId];
   }
 
   /**
