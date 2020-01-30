@@ -1,10 +1,8 @@
 package memstore.table;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import memstore.data.ByteFormat;
 import memstore.data.DataLoader;
@@ -30,7 +28,7 @@ public class IndexedRowTable implements Table {
   private TreeMap<Integer, IntArrayList> index; //fieldVal -> [row1, row7, row9...]
   private ByteBuffer rows;
   private int indexColumn;
-  long[] rowsums;
+  long[] rowSums; //sum of all cols in a row, except for col3
 
   public IndexedRowTable(int indexColumn) {
     this.indexColumn = indexColumn;
@@ -49,7 +47,7 @@ public class IndexedRowTable implements Table {
     List<ByteBuffer> rows = loader.getRows();
     numRows = rows.size();
     this.rows = ByteBuffer.allocate(ByteFormat.FIELD_LEN * numRows * numCols);
-    rowsums = new long[numRows];
+    rowSums = new long[numRows];
 
     for (int rowId = 0; rowId < numRows; rowId++) {
       ByteBuffer curRow = rows.get(rowId);
@@ -59,12 +57,13 @@ public class IndexedRowTable implements Table {
         int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
         if(colId==0) col0sum+=fieldVal;
         rowsum+=fieldVal;
+
         if (colId == indexColumn) {
           insertIntoIndex(rowId, fieldVal);
         }
         this.rows.putInt(offset, fieldVal);
       }
-      rowsums[rowId] = rowsum;
+      rowSums[rowId] = rowsum;
     }
   }
 
@@ -99,6 +98,7 @@ public class IndexedRowTable implements Table {
   @Override
   public int getIntField(int rowId, int colId) {
     if (rowId < 0 || colId < 0 || rowId >= numRows || colId >= numCols) {
+      System.out.println("-------------------DANGER1-----------------");
       return 0;
     }
     int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
@@ -111,15 +111,28 @@ public class IndexedRowTable implements Table {
   @Override
   public void putIntField(int rowId, int colId, int newFieldValue) {
     if (rowId < 0 || colId < 0 || rowId >= numRows || colId >= numCols) {
+      System.out.println("-------------------DANGER2-----------------");
       return;
     }
     int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
-    int oldFieldValue = getIntField(rowId, indexColumn);
+    int oldFieldValue = getIntField(rowId, colId);
     rows.putInt(offset, newFieldValue);
+
+    /**
+     * Updating shared data structures
+     */
     if (colId == indexColumn) {
       //update the index too
       updateIndex(rowId, newFieldValue, oldFieldValue);
     }
+    //update col0sum
+    if(colId==0){
+      col0sum -= oldFieldValue;
+      col0sum += newFieldValue;
+    }
+    // update rowsum
+    rowSums[rowId] -= oldFieldValue;
+    rowSums[rowId] += newFieldValue;
   }
 
   private void updateIndex(int rowId, int newFieldValue, int oldFieldValue) {
@@ -223,13 +236,13 @@ public class IndexedRowTable implements Table {
     }
   }
 
-  private Set<Integer> getSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
+  /*private Set<Integer> getSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
     if(colId==indexColumn){
       return indexGetSatisfyingRowsLessThan(threshold, colId, rowSubset);
     } else {
       return bufferGetSatisfyingRowsLessThan(threshold, colId, rowSubset);
     }
-  }
+  }*/
 
 
 
@@ -245,7 +258,7 @@ public class IndexedRowTable implements Table {
     return resultSet;
   }
 
-  private Set<Integer> indexGetSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
+  /*private Set<Integer> indexGetSatisfyingRowsLessThan(int threshold, int colId, Set<Integer> rowSubset) {
     Set<Integer> set1 = new HashSet<>();
     index.headMap(threshold).forEach((k, intArrayList)->set1.addAll(intArrayList));
 
@@ -260,7 +273,7 @@ public class IndexedRowTable implements Table {
     }
 
     return ans;
-  }
+  }*/
 
   private Set<Integer> bufferGetSatisfyingRowsGreaterThan(int threshold, int colId) {
     Set<Integer> resultSet = new HashSet<>();
@@ -320,13 +333,12 @@ public class IndexedRowTable implements Table {
 
 
   private long rowSum(int rowId) {
-    long ans = 0;
+    /*long ans = 0;
     for(int colId=0; colId<numCols; ++colId){
       ans += getIntField(rowId, colId);
     }
-    return ans;
-    //TODO: This might lead to correctness issues if called after updates
-    //return rowsums[rowId];
+    return ans;*/
+    return rowSums[rowId];
   }
 
   /**
