@@ -60,6 +60,12 @@ public class ColumnTable implements Table {
     @Override
     public void putIntField(int rowId, int colId, int field) {
         int offset = ByteFormat.FIELD_LEN * ((colId * numRows) + rowId);
+        //update col0sum
+        int oldFieldValue = getIntField(rowId, colId);
+        if(colId==0){
+            col0sum -= oldFieldValue;
+            col0sum += field;
+        }
         columns.putInt(offset, field);
     }
 

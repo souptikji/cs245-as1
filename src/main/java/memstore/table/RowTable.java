@@ -68,6 +68,12 @@ public class RowTable implements Table {
       return;
     }
     int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+    //update col0sum
+    int oldFieldValue = getIntField(rowId, colId);
+    if(colId==0){
+      col0sum -= oldFieldValue;
+      col0sum += field;
+    }
     rows.putInt(offset, field);
   }
 

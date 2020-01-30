@@ -1,5 +1,12 @@
 package memstore.table;
 
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import java.nio.ByteBuffer;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
+import memstore.data.ByteFormat;
 import memstore.data.DataLoader;
 
 import java.io.IOException;
@@ -8,8 +15,13 @@ import java.io.IOException;
  * Custom table implementation to adapt to provided query mix.
  */
 public class CustomTable implements Table {
+    protected int numCols;
+    protected int numRows;
+    protected ByteBuffer rows;
+    long col0sum;
 
-    public CustomTable() { }
+    public CustomTable() {
+    }
 
     /**
      * Loads data into the table through passed-in data loader. Is not timed.
@@ -19,7 +31,20 @@ public class CustomTable implements Table {
      */
     @Override
     public void load(DataLoader loader) throws IOException {
-        // TODO: Implement this!
+        this.numCols = loader.getNumCols();
+        List<ByteBuffer> rows = loader.getRows();
+        numRows = rows.size();
+        this.rows = ByteBuffer.allocate(ByteFormat.FIELD_LEN * numRows * numCols);
+
+        for (int rowId = 0; rowId < numRows; rowId++) {
+            ByteBuffer curRow = rows.get(rowId);
+            for (int colId = 0; colId < numCols; colId++) {
+                int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+                int fieldVal = curRow.getInt(ByteFormat.FIELD_LEN * colId);
+                if(colId==0) col0sum+=fieldVal;
+                this.rows.putInt(offset, curRow.getInt(ByteFormat.FIELD_LEN * colId));
+            }
+        }
     }
 
     /**
@@ -27,8 +52,11 @@ public class CustomTable implements Table {
      */
     @Override
     public int getIntField(int rowId, int colId) {
-        // TODO: Implement this!
-        return 0;
+        if (rowId < 0 || colId < 0 || rowId >= numRows || colId >= numCols) {
+            return 0;
+        }
+        int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+        return rows.getInt(offset);
     }
 
     /**
@@ -36,7 +64,17 @@ public class CustomTable implements Table {
      */
     @Override
     public void putIntField(int rowId, int colId, int field) {
-        // TODO: Implement this!
+        if (rowId < 0 || colId < 0 || rowId >= numRows || colId >= numCols) {
+            return;
+        }
+        int offset = ByteFormat.FIELD_LEN * ((rowId * numCols) + colId);
+        //update col0sum
+        int oldFieldValue = getIntField(rowId, colId);
+        if(colId==0){
+            col0sum -= oldFieldValue;
+            col0sum += field;
+        }
+        rows.putInt(offset, field);
     }
 
     /**
@@ -47,8 +85,12 @@ public class CustomTable implements Table {
      */
     @Override
     public long columnSum() {
-        // TODO: Implement this!
-        return 0;
+        return col0sum;
+    /*long colsum = 0;
+    for (int rowId = 0; rowId < numRows; ++rowId) {
+      colsum += getIntField(rowId, 0);
+    }
+    return colsum;*/
     }
 
     /**
@@ -60,8 +102,13 @@ public class CustomTable implements Table {
      */
     @Override
     public long predicatedColumnSum(int threshold1, int threshold2) {
-        // TODO: Implement this!
-        return 0;
+        long ans = 0;
+        for (int rowId = 0; rowId < numRows; ++rowId){
+            if(getIntField(rowId,1)>threshold1 && getIntField(rowId,2)<threshold2){
+                ans += getIntField(rowId, 0);
+            }
+        }
+        return ans;
     }
 
     /**
@@ -72,8 +119,18 @@ public class CustomTable implements Table {
      */
     @Override
     public long predicatedAllColumnsSum(int threshold) {
-        // TODO: Implement this!
-        return 0;
+        long ans = 0;
+        for (int rowId = 0; rowId < numRows; ++rowId){
+            if(getIntField(rowId,0)>threshold){
+                //get col sum for the entire row
+                int rowsum = 0;
+                for(int colId=0; colId<numCols; ++colId){
+                    rowsum += getIntField(rowId, colId);
+                }
+                ans+=rowsum;
+            }
+        }
+        return ans;
     }
 
     /**
@@ -84,8 +141,13 @@ public class CustomTable implements Table {
      */
     @Override
     public int predicatedUpdate(int threshold) {
-        // TODO: Implement this!
-        return 0;
+        int ans = 0;
+        for (int rowId = 0; rowId < numRows; ++rowId){
+            if(getIntField(rowId,0)<threshold){
+                ++ans;
+                putIntField(rowId, 3, getIntField(rowId,3)+getIntField(rowId,2));
+            }
+        }
+        return ans;
     }
-
 }
